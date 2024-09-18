@@ -13,12 +13,12 @@ import java.util.Random;
 // NO recursion; violation will lead to zero points
 public class GlassBenLampeDylanRSA {
 	public int gcd(int inE, int inZ) {
-		int d = inE;
-		int q = inZ;
+		int q = inE;
+		int d = inZ;
 		while (q > 0) {
-			int tempVar = q;
+			int tempQ = q;
 			q = d % q;
-			d = tempVar;
+			d = tempQ;
 		}
 		return d;
 	}
@@ -43,7 +43,33 @@ public class GlassBenLampeDylanRSA {
 	// inverse of inE mod inZ
 	//
 	public int xgcd(int inE, int inZ) {
-		return 0;
+
+		int q = inE;
+		int d = inZ;
+		int t1 = 0;
+		int t2 = 1;
+		while (q > 0) {
+
+			// regular xgcd
+			int tempT = t2;
+			int tempQ = q;
+			q = d % q;
+			t2 = t1 - (t2 * q);
+			t1 = tempT;
+			d = tempQ;
+
+		}
+		// If the gcd isn't 1, there isn't an inverse.
+		if (d != 1) {
+			return -1;
+		}
+
+		// if negative, add top number (essentially modding it positive)
+		if (t2 < 0) {
+			t2 += inZ;
+		}
+		return t2;
+
 		// TO BE FINISHED
 		// Must implement the extended Euclidean algorithm
 		// NO brute-forcing; violation will lead to zero points
@@ -129,9 +155,9 @@ public class GlassBenLampeDylanRSA {
 
 		System.out.println("********** Small RSA Project output begins ********** ");
 
-		atrsa.testGcd();
+		// atrsa.testGcd();
 		atrsa.testXgcd();
-		atrsa.testKeygen();
-		atrsa.testRSA();
+		// atrsa.testKeygen();
+		// atrsa.testRSA();
 	}
 }
