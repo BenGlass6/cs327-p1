@@ -50,13 +50,17 @@ public class GlassBenLampeDylanRSA {
 		int t2 = 1;
 		while (q > 0) {
 
-			// regular xgcd
+			int quotient = d / q;
+			int remainder = d % q;
+
+			// regular gcd
+			d = q;
+			q = remainder;
+
+			// xgcd
 			int tempT = t2;
-			int tempQ = q;
-			q = d % q;
-			t2 = t1 - (t2 * q);
+			t2 = t1 - (t2 * quotient);
 			t1 = tempT;
-			d = tempQ;
 
 		}
 		// If the gcd isn't 1, there isn't an inverse.
@@ -65,15 +69,10 @@ public class GlassBenLampeDylanRSA {
 		}
 
 		// if negative, add top number (essentially modding it positive)
-		if (t2 < 0) {
-			t2 += inZ;
+		if (t1 < 0) {
+			t1 += inZ;
 		}
-		return t2;
-
-		// TO BE FINISHED
-		// Must implement the extended Euclidean algorithm
-		// NO brute-forcing; violation will lead to zero points
-		// NO recursion; violation will lead to zero points
+		return t1;
 	}
 
 	public void testXgcd() {
@@ -156,8 +155,8 @@ public class GlassBenLampeDylanRSA {
 		System.out.println("********** Small RSA Project output begins ********** ");
 
 		// atrsa.testGcd();
-		atrsa.testXgcd();
-		// atrsa.testKeygen();
+		// atrsa.testXgcd();
+		atrsa.testKeygen();
 		// atrsa.testRSA();
 	}
 }
