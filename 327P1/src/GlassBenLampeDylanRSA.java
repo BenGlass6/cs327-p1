@@ -6,9 +6,10 @@ import java.util.Random;
  * 
  */
 
-public class AndersonThomasRSA
+public class GlassBenLampeDylanRSA
 {
 	public int gcd (int inE, int inZ) {
+		return 0;
 		// TO BE FINISHED
 		// Must implement Euclid's algorithm
 		// NO brute-forcing; violation will lead to zero points
@@ -35,6 +36,7 @@ public class AndersonThomasRSA
 	//	inverse of inE mod inZ
 	//
 	public int xgcd (int inE, int inZ) {
+		return 0;
 		// TO BE FINISHED
 		// Must implement the extended Euclidean algorithm
 		// NO brute-forcing; violation will lead to zero points
@@ -54,6 +56,7 @@ public class AndersonThomasRSA
 	}
 
 	public int[] keygen (int inP, int inQ, int inE) {
+		return new int[3];
 		// TO BE FINISHED
 	}
 
@@ -77,14 +80,17 @@ public class AndersonThomasRSA
 	// For example, 5^20 is too big to be held by a Java primitive integer
 	//
 	public int modExp (int a, int b, int n) {
+		return 0;
 		// TO BE FINISHED
 	}
 
 	public int encrypt (int message, int inE, int inN) {
+		return 0;
 		// TO BE FINISHED
 	}
 
 	public int decrypt (int ciphertext, int inD, int inN) {
+		return 0;
 		// TO BE FINISHED
 	}
 
@@ -105,7 +111,7 @@ public class AndersonThomasRSA
 	}
 
 	public static void main (String[] args) {
-		AndersonThomasRSA atrsa = new AndersonThomasRSA ();
+		GlassBenLampeDylanRSA atrsa = new GlassBenLampeDylanRSA ();
 
 		System.out.println ("********** Small RSA Project output begins ********** ");
 
